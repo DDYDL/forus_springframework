@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* 내용 사이즈 설정 */
+.content {
+	padding-top: 60px;
+	padding-left: 300px;
+	padding-right: 300px;
+}
+.content-list {
+	padding-top: 60px;
+	padding-left: 300px;
+	padding-right: 300px;
+}

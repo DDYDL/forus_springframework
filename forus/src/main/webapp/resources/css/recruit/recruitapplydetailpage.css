@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* recruitapplydetailpage.jsp와 recruitdetailpage.jsp의 공통 설정 */
+.list-header { display: flex; justify-content: space-between; }
+
+/* recruitdetailpage.jsp의 모달 설정 */
+	/* 제목 입력칸 */
+input.title {
+	width: 95%;
+	min-height: 50px;
+	border: 1px solid darkgray;
+	border-radius:10px;
+	padding-left:20px;
+	font-family: 'KCC-Hanbit';
+}
+	/* 내용 입력칸 */
+.textarea {
+	width: 95%;
+	min-height: 150px;
+	border: 1px solid darkgray;
+	border-radius:10px;
+	padding-left:20px;
+	padding-top: 15px;
+	font-family: 'KCC-Hanbit';
+}
+
+/* 지원정보 확인 설정 */
+.check_div p { margin:15px 0px 15px 0px; }
+td .content-document { margin:0px; }
+.list_table { width:100%; }
+.left { width:20%; padding-top:15px; }
+.middle { width:60%; padding-top:15px; }
+.right { width:20%; padding-top:15px; text-align:right; }
+
+/* 제목, 포스트 시간 설정 */
+#post_title { display:flex; }
+#post_time_content { display:flex; float:right; color:#D1D1D1; }
+
+/* recruitapplydetailpage.jsp의 전달메시지 설정 */
+.content_p { padding-left:25px; }
+
+/* 소제목 설정 */
+.inner_title { padding-left:25px; }
+
+/* 사용자 프로필 설정 */
+.profile { padding:15px; }
+.user_profile { padding: 15px 15px 15px 25px; }
+.user_img_div { padding-left:25px;}
+.user_img { width:100px; height:100px; border-radius: 70%; overflow: hidden; object-fit: cover; }
+.user_table { width:800px; margin-left:20px; }
+.user_td1 { padding-left:15px; padding-top:15px; }
+.user_td2 { padding-top:15px; }
+
+/* 펫 프로필 설정 */
+.pet_profile { width: 1000px; }
+.pet_img { width:70px; height:70px; border-radius: 70%; overflow: hidden; object-fit: cover; }
+.pet_td1 { width:50px; padding-left:25px; padding-top:10px; padding-bottom:10px; }
+.pet_td2 { width:60px; }
+.pet_td3 { width:60px; }
+.pet_td4 { width:70px; }
+.pet_td5 { width:150px; }
+.pet_td6 { width:300px; }
+
+/* 조건 테이블 설정 */
+.condition_td1 { padding-left:15px; padding-top:10px; padding-bottom:10px; width:70px; }
+
+/* 지도 테이블 설정 */
+.area_td1 { padding-top:10px; padding-bottom:10px; padding-left:25px; width:100px; vertical-align:center; }
+.area_td2 { padding-top:10px; padding-bottom:10px; width:600px; vertical-align:center; }
+
+/* 상세요강 설정 */
+.content_p { padding: 0px 25px; }

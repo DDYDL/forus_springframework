@@ -1,0 +1,20 @@
+@charset "UTF-8";
+    
+/* 캘린더 날짜 셀 크기 조정 */
+.flatpickr-day {
+    width: 35px;
+    line-height: 30px;
+    font-size: 13px;
+}
+/* 캘린더 상단 월/연도 영역 크기 조정 */
+.flatpickr-month {
+	font-size: 15px;
+	height: 30px;
+	width: 30px;
+}
+/* 요일 헤더 크기 조정 */
+.flatpickr-weekdays {
+	font-size: 15px;
+	height: 20px;
+}
+#calendar { padding-bottom: 0px; }

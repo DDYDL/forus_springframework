@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/* 모달 처리 */
+#modal { display:none; }
+/* 화면 중앙에 모달이 뜨게 함 */
+.modal {
+	display: flex;
+	justify-content:center;
+	padding: 30px;
+}
+
+.modal a.close-modal[class*="icon-"] {
+  top: -50px;
+  right: -50px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  line-height: 1.25;
+  text-align: center;
+  text-indent: 0;
+  background: #900;
+  border: 2px solid #fff;
+  -moz-box-shadow:    1px 1px 5px #262627;
+  -webkit-box-shadow: 1px 1px 5px #262627;
+  box-shadow:         1px 1px 5px #262627;
+}

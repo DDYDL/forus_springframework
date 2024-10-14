@@ -1,0 +1,74 @@
+/*복사본*/
+.bodybox { /* 가로 1000 바디*/
+	margin: 0 auto;
+	border: 1px solid;
+	width: 700px;
+	padding-left: 50px;
+	border: none;
+}
+
+.containerbox { /*병원정보 입력 컨테이너 묶는 섹션*/
+	margin: 0;
+	height: auto;
+	border: 1px solid;
+	width:800px;
+	border-radius: 20px;
+	border: none;
+}
+
+.container { /*내부 입력 모으는 용 회색선 박스*/
+	margin: 0;
+	height: auto;
+	border: 1px solid;
+	width: 800px;
+	padding: 10px 40px;
+	border-radius: 20px;
+	border: 1px solid rgb(201, 201, 201);
+}
+
+
+
+h3 {
+	text-align: center;
+}
+
+h4 {
+	text-align: left;
+}
+
+.time {
+	padding: 30px 0;
+}
+
+.title {
+	float: left;
+	width: 150px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.row {
+	height: 30px;
+	padding: 5px;
+}
+
+.rowwrite {
+	text-align: left;
+}
+
+.bigrow {
+	height: 30px;
+	padding: 20px;
+}
+
+tr {
+	padding: 10px;
+	height: 20px;
+}
+
+.name {
+	border-bottom: 0 0 1px 0;
+}
+.size{
+	width:205px;
+}

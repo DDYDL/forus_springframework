@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.hospital">
+	<insert id="insertHospital" parameterType="Hospital">
+		<![CDATA[
+			insert into hospital (user_id, h_exponent_name, h_num,
+			h_license, h_name, h_manager_name, h_phone, h_address,
+			h_longitude, h_latitude, h_animal_type, h_picture, h_memo,
+			h_memo_road , h_pay, h_sns, h_parking, h_isopen,
+			h_lunch_time_start, h_lunch_time_end, h_interval_time)
+			
+			values (#{user_id}, #{h_exponent_name}, #{h_num},
+			#{h_license}, #{h_name}, #{h_manager_name}, #{h_phone}, #{h_address},
+			#{h_longitude}, #{h_latitude}, #{h_animal_type}, #{h_picture},#{h_memo},
+			#{h_memo_road}, #{h_pay}, #{h_sns}, #{h_parking}, #{h_isopen},
+			#{h_lunch_time_start}, #{h_lunch_time_end}, #{h_interval_time})
+		]]>
+	</insert>
+
+
+
+
+	<select id="selectHospital" parameterType="Integer"
+		resultType="Hospital">
+	<![CDATA[
+		select * from hospital where h_id = #{h_id}]]>
+	</select>
+	
+	
+	<select id="selectHospitaluser" parameterType="Integer"
+		resultType="Hospital">
+	<![CDATA[
+		select distinct * from hospital where user_id = #{user_id} order by h_id limit 1]]>
+	</select>
+
+
+	<update id="updateHospital" parameterType="Hospital">
+		update hospital
+		<set>
+			<if test="h_exponent_name != null">h_exponent_name=#{h_exponent_name},</if>
+			<if test="h_num != null">h_num=#{h_num},</if>
+			<if test="h_license != null">h_license=#{h_license},</if>
+			<if test="h_name != null">h_name=#{h_name},</if>
+			<if test="h_manager_name != null">h_manager_name=#{h_manager_name},</if>
+			<if test="h_phone != null">h_phone=#{h_phone},</if>
+			<if test="h_address != null">h_address=#{h_address},</if>
+			<if test="h_longitude != null">h_longitude=#{h_longitude},</if>
+			<if test="h_latitude != null">h_latitude=#{h_latitude},</if>
+			<if test="h_animal_type != null">h_animal_type=#{h_animal_type},</if>
+			<if test="h_picture != null">h_picture=#{h_picture},</if>
+			<if test="h_memo != null">h_memo=#{h_memo},</if>
+			<if test="h_memo_road != null">h_memo_road=#{h_memo_road},</if>
+			<if test="h_pay != null">h_pay=#{h_pay},</if>
+			<if test="h_sns != null">h_sns=#{h_sns},</if>
+			<if test="h_parking != null">h_parking=#{h_parking},</if>
+			<if test="h_isopen != null">h_isopen=#{h_isopen},</if>
+			<if test="h_lunch_time_start != null">h_lunch_time_start=#{h_lunch_time_start},</if>
+			<if test="h_lunch_time_end != null">h_lunch_time_end=#{h_lunch_time_end},</if>
+			<if test="h_interval_time != null">h_interval_time=#{h_interval_time}</if>
+
+		</set>
+		where h_id=#{h_id}
+	</update>
+
+
+	<!--거리 기반 쿼리 -->
+
+	<select id="findHospitalByLocation" parameterType="map"
+		resultType="hospital">
+        <![CDATA[
+		SELECT
+			h.h_id,
+			h.h_name,
+			h.h_address,
+			h.h_latitude,
+			h.h_longitude,
+			COALESCE(h.h_picture, 'hospitaldefault.png') AS h_picture,
+			h.h_animal_type,
+			(
+					ST_Distance_Sphere(
+							point(#{longitude}, #{latitude}),
+							point(h.h_longitude, h.h_latitude)
+					) / 1000
+				) AS distance
+		FROM
+			hospital h
+		WHERE
+				(
+						ST_Distance_Sphere(
+								point(#{longitude}, #{latitude}),
+								point(h.h_longitude, h.h_latitude)
+						) / 1000
+					) <= #{radius}
+		ORDER BY
+			distance ASC
+		LIMIT #{offset}, #{limit}
+		]]>
+	</select>
+
+	<select id="findHospitalByKeyword" parameterType="map"
+		resultType="hospital">
+    <![CDATA[
+		SELECT
+			h.h_id,
+			h.h_name,
+			h.h_address,
+			h.h_latitude,
+			h.h_longitude,
+-- 			h.h_picture,
+			COALESCE(h.h_picture, 'hospitaldefault.png') AS h_picture,
+			h.h_animal_type
+		FROM
+			hospital h
+		WHERE
+			h.h_name LIKE CONCAT('%', #{keyword}, '%')
+		   OR h.h_address LIKE CONCAT('%', #{keyword}, '%')
+		   OR h.h_name LIKE CONCAT('%', REPLACE(#{keyword}, '역', ''), '%')
+		   OR h.h_address LIKE CONCAT('%', REPLACE(#{keyword}, '역', ''), '%')
+		ORDER BY
+			h.h_name ASC
+			LIMIT #{offset}, #{limit}
+		]]>
+	</select>
+
+	<select id="findHospitalDetailByHospitalId" parameterType="int"
+		resultType="hospital">
+		SELECT
+		*
+		FROM
+		hospital h
+		WHERE
+		h.h_id = #{h_id}
+	</select>
+
+	<select id="findHospitalTimeByHospitalId" parameterType="int"
+		resultType="hospital_time">
+		SELECT
+		*
+		FROM
+		hospital_time ht
+		WHERE
+		ht.h_id = #{h_id}
+		ORDER BY
+		FIELD(ht.htime_week, 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+		'Friday', 'Saturday',
+		'Sunday');
+	</select>
+
+	<select id="selectHospitalByUserId" parameterType="Integer"
+		resultType="Hospital">
+		Select * From
+		Hospital Where user_id=#{user_id}
+	</select>
+
+	<update id="updateHospitalIntevalTime" parameterType="Map">
+		update
+		hospital set h_interval_time=#{h_interval_time}
+		where h_id=#{h_id}
+
+	</update>
+
+
+
+</mapper>

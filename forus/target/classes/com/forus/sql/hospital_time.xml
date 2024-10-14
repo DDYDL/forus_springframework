@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.hospital_time">
+	<select id="selectHospitalTime" parameterType="Integer"
+		resultType="Hospital_time">
+		select * from hospital_time where h_id=#{h_id}
+		order by
+		week_no
+	</select>
+
+	<select id="selectHospitalTimeByWeek" parameterType="Integer"
+		resultType="Hospital_time">
+		select * from hospital_time where h_id=#{h_id} and
+		week_no=#{week_no}
+		order by week_no
+	</select>
+
+	<update id="updateHospitalTime" parameterType="Hospital_time">
+		update
+		hospital_time set
+		htime_opening=#{htime_opening},
+		htime_closing=#{htime_closing},
+		htime_isable=#{htime_isable}
+		where
+		h_id=#{h_id} and week_no=#{week_no}
+	</update>
+
+	<insert id="insertHospitalTime" parameterType="Hospital_time">
+		insert into
+		hospital_time
+		(htime_week,htime_opening,htime_closing,htime_isable,week_no)
+		values
+		(#{htime_week},#{htime_opening},#{htime_closing},#{htime_isable},#{week_no})
+	</insert>
+
+	<insert id="insertnewTime" parameterType="Hospital_time"> INSERT
+		INTO hospital_time (h_id , htime_week , htime_opening, htime_closing, htime_isable, week_no ) VALUES
+		(#{h_id}, 'Monday', '09:00:00', '18:00:00', 0, 1),
+		(#{h_id}, 'Tuesday', '09:00:00', '18:00:00', 0, 2),
+		(#{h_id}, 'Wednesday','09:00:00', '18:00:00', 0, 3),
+		(#{h_id}, 'Thursday', '09:00:00', '18:00:00', 0, 4),
+		(#{h_id}, 'Friday', '09:00:00', '18:00:00', 0, 5),
+		(#{h_id}, 'Saturday', '09:00:00','18:00:00', 0, 6),
+		(#{h_id}, 'Sunday', '09:00:00', '18:00:00', 0, 7);
+	</insert>
+
+	<!-- <insert id="insertnewTime" parameterType="Hospital_time"> INSERT INTO 
+		hospital_time (htime_week , htime_opening, htime_closing, htime_isable, week_no 
+		) VALUES ('Monday', '09:00:00', '18:00:00', 0, 1), ('Tuesday', '09:00:00', 
+		'18:00:00', 0, 2), ('Wednesday', '09:00:00', '18:00:00', 0, 3), ('Thursday', 
+		'09:00:00', '18:00:00', 0, 4), ('Friday', '09:00:00', '18:00:00', 0, 5), 
+		('Saturday', '09:00:00', '18:00:00', 0, 6), ('Sunday', '09:00:00', '18:00:00', 
+		0, 7); </insert> -->
+
+
+</mapper>

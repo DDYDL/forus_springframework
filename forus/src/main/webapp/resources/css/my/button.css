@@ -1,0 +1,99 @@
+/*my button.css*/
+
+/*3d 버튼*/
+.btn {
+	font-family: 'KCC-Hanbit';
+	border: none;
+	position: relative;
+	padding: 0;
+	margin: 10px 20px 10px 0;
+	font-weight: 600;
+	width: 120px;
+    height: 50px;
+    text-align: center;
+	line-height: 50px;
+	color: #FFF;
+	font-size:18px;
+	border-radius: 10px;
+	transition: all 0.2s;
+}
+
+.find-btn {
+	text-align: center;
+}
+
+.find-btn1 {
+	display: inline-block;
+}
+
+/*동물 성별 버튼 */
+/* 기본적으로 라디오 버튼 숨기기 */
+.petgender-check {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* 버튼의 기본 스타일 */
+.petgender-button {
+	padding: 5px 10px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid #03C75A;
+	color: #262627;
+	background-color: transparent;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color
+		0.3s ease;
+}
+
+/* 선택된 버튼 */
+.petgender-check:checked+.petgender-button {
+	background-color: #03985A;
+	color: #ffffff;
+	border-color: #03C75A;
+}
+
+/* 마우스 오버 시 스타일 */
+.petgender-button:hover {
+	background-color: #03C75A;
+	color: #ffffff;
+	border-color: #03985A;
+  cursor:pointer;
+}
+
+
+/*중성화 여부 버튼 */
+/* 기본적으로 체크박스 숨기기 */
+.checkbox-check {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* 버튼의 기본 스타일 */
+.checkbox-button {
+	padding: 5px 10px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid #03C75A;
+	color: #262627;
+	background-color: transparent;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color
+		0.3s ease;
+}
+
+/* 선택된 버튼 */
+.checkbox-check:checked+.checkbox-button {
+	background-color: #03985A;
+	color: #ffffff;
+	border-color: #03C75A;
+}
+
+/* 마우스 오버 시 스타일 */
+.checkbox-button:hover {
+	background-color: #03C75A;
+	color: #ffffff;
+	border-color: #03985A;
+  cursor:pointer;
+}
+

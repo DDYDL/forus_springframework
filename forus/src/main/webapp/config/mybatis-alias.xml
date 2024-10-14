@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.forus.dto.User" alias="user" />
+		<typeAlias type="com.forus.dto.Pet" alias="pet" />
+		<typeAlias type="com.forus.dto.Hospital" alias="hospital" />
+		<typeAlias type="com.forus.dto.Hospital_qna" alias="hospital_qna" />
+		<typeAlias type="com.forus.dto.Hospital_time" alias="hospital_time" />
+		<typeAlias type="com.forus.dto.Recruit_post" alias="recruit_post" />
+		<typeAlias type="com.forus.dto.Recruit_apply" alias="recruit_apply" />
+		<typeAlias type="com.forus.dto.Reservation" alias="reservation" />
+		<typeAlias type="com.forus.dto.Search" alias="search" />
+	</typeAliases>
+</configuration>

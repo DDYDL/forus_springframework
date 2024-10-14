@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* 동물 프로필 선택칸 */
+.pet_profile { width: 100%; }
+.pet_img { width:70px; height:70px; border-radius: 70%; overflow: hidden; object-fit: cover; }
+.pet_td1 { width:70px; padding-left:35px; padding-top:10px; padding-bottom:10px; }
+.pet_td2 { width:70px; padding-left:20px; white-space:nowrap; overflow:hidden; }
+.pet_td3 { width:70px; padding-left:2px; white-space:nowrap; overflow:hidden; }
+.pet_td4 { width:70px; padding-left:10px; white-space:nowrap; overflow:hidden; }
+.pet_td5 { width:140px; padding-left:10px; white-space:nowrap; overflow:hidden; }
+.pet_td6 { width:300px; padding-left:20px; padding-right:40px; text-align:right; }
+
+	/* 라디오 버튼 스타일 */
+.touch_tr.active {
+  background: #D1D1D145;
+}
+input[type="radio"] {
+	vertical-align: middle;
+  	appearance: none;
+  	border: max(1px, 0.1em) solid #D1D1D1;
+  	border-radius: 50%;
+  	width: 1.25em;
+  	height: 1.25em;
+}
+input[type="radio"]:focus-visible {
+  	outline-offset: max(2px, 0.1em);
+  	outline: max(2px, 0.1em) dotted #03C75A;
+}
+input[type="radio"]:checked {
+  	border: 0.4em solid #03C75A;
+}
+
+/* 조건 설정 칸 */
+.setting { width: 100%; text-align: left; padding-top:10px; }
+.setting_td1 { padding-left:30px; padding-top:15px; padding-bottom:10px; width:100px; vertical-align: center; }
+.setting_td2 { padding-top:15px; padding-bottom:10px; width:300px; }
+#paytype { border: 1px solid #D1D1D1; border-radius:5px; width:250px; height:35px; padding-left:13px; }
+#pay { border: 1px solid #D1D1D1; border-radius:5px; width:250px; height:35px; padding-left:15px; }
+.time_start { border: 1px solid #D1D1D1; border-radius:5px; width:115px; height:35px; padding-left:15px; }
+.time_end { border: 1px solid #D1D1D1; border-radius:5px; width:115px; height:35px; padding-left:15px; }
+	/* 캘린더 */
+.form-control { width:250px; height:35px; }
+
+/* 위치 검색바 */
+.address_search { border: 1px solid #D1D1D1; border-radius: 10px; }
+.btns { width: 50px; border-style:none; background:white; }
+#address { border-style:none; }
+
+/* 제목 입력칸 */
+input.title {
+	width: 100%;
+	min-height: 50px;
+	border: 1px solid #D1D1D1;
+	border-radius: 10px;
+	padding-left: 30px;
+}
+/* 내용 입력칸 */
+.textarea {
+	width: 100%;
+	min-height: 150px;
+	border: 1px solid #D1D1D1;
+	border-radius: 10px;
+	padding-left: 30px;
+	padding-top: 15px;
+}

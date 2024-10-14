@@ -1,0 +1,56 @@
+.styled-table {
+	border-collapse: collapse;
+	margin: 0;
+	width: 800px;
+	text-align: middle;
+	
+}
+
+.styled-table thead tr {
+	border-top: 1px solid #262627;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+	cursor: pointer;
+}
+
+.styled-table th, .styled-table td {
+	padding: 10px 20px;
+}
+
+.styled-table tbody tr {
+		border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+}
+
+ul {
+  line-height: 1.5;
+}
+
+tr{
+	padding:20px;
+}
+
+th, td{
+	padding:20px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.img-icon {
+	width: 70px;
+	height: 70px;
+	border-radius:70%;
+	object-fit: cover;
+}
+
+.center{
+	text-align: ceneter;
+}
+
+input[type=text] {
+	width: 120px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid rgb(201, 201, 201);
+	padding: 0 5px;
+}

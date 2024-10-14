@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.search">
+	<select id="selectRecruit_postList" parameterType="Map" resultType="Recruit_post">
+		select * from recruit_post
+		<choose>
+			<when test="areas.size==0 and species.size==0">
+			</when>
+			<when test="areas.size==0">
+				<where>
+					<foreach collection="species" item="specie" separator="or" open="(" close=")">
+						pet_id in (select p.pet_id from pet p join recruit_post r on p.pet_id=r.pet_id where p.pet_species like '%${specie}%')
+					</foreach>
+				</where>
+			</when>
+			<when test="species.size==0">
+				<where>
+					<foreach collection="areas" item="area" separator="or" open="(" close=")">
+						post_address like '%${area}%'
+					</foreach>
+				</where>
+			</when>
+			<otherwise>
+				<where>
+					<foreach collection="areas" item="area" separator="or" open="(" close=")">
+						post_address like '%${area}%'
+					</foreach>
+					and
+					<foreach collection="species" item="specie" separator="or" open="(" close=")">
+						pet_id in (select p.pet_id from pet p join recruit_post r on p.pet_id=r.pet_id where p.pet_species like '%${specie}%')
+					</foreach>
+				</where>
+			</otherwise>
+		</choose>
+		order by post_time DESC
+		limit #{row}, 10
+	</select>
+	
+	<select id="selectListCount" resultType="Integer" parameterType="Map">
+		select count(*) from recruit_post
+		<choose>
+			<when test="areas.size==0 and species.size==0">
+			</when>
+			<when test="areas.size==0">
+				<where>
+					<foreach collection="species" item="specie" separator="or" open="(" close=")">
+						pet_id in (select p.pet_id from pet p join recruit_post r on p.pet_id=r.pet_id where p.pet_species like '%${specie}%')
+					</foreach>
+				</where>
+			</when>
+			<when test="species.size==0">
+				<where>
+					<foreach collection="areas" item="area" separator="or" open="(" close=")">
+						post_address like '%${area}%'
+					</foreach>
+				</where>
+			</when>
+			<otherwise>
+				<where>
+					<foreach collection="areas" item="area" separator="or" open="(" close=")">
+						post_address like '%${area}%'
+					</foreach>
+					and
+					<foreach collection="species" item="specie" separator="or" open="(" close=")">
+						pet_id in (select p.pet_id from pet p join recruit_post r on p.pet_id=r.pet_id where p.pet_species like '%${specie}%')
+					</foreach>
+				</where>
+			</otherwise>
+		</choose>
+		order by post_time DESC
+	</select>
+</mapper>

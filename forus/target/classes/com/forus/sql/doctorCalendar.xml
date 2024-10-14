@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.doctorCalendar">
+    <resultMap id="reservationMap" type="com.forus.dto.Reservation">
+        <result property="reservId" column="reserv_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="petId" column="pet_id"/>
+        <result property="hId" column="h_id"/>
+        <result property="reservDate" column="reserv_date"/>
+        <result property="reservTime" column="reserv_time"/>
+        <result property="reservApplyTime" column="reserv_apply_time"/>
+        <result property="reservContent" column="reserv_content"/>
+        <result property="reservStatus" column="reserv_status"/>
+        <result property="reservMemo" column="reserv_memo"/>
+    </resultMap>
+
+
+
+    <select id="findHospitalIdByUserId" parameterType="int" resultType="int">
+        SELECT h_id
+        FROM hospital
+        WHERE user_id = #{userId}
+    </select>
+
+
+    <select id="findReservationsByDate" parameterType="map" resultMap="reservationMap">
+        SELECT  reserv_id,
+                user_id,
+                pet_id,
+                h_id,
+                reserv_date,
+                reserv_time,
+                reserv_apply_time,
+                reserv_content,
+                reserv_status,
+                reserv_memo
+        FROM reservation
+        WHERE reserv_date BETWEEN #{startDate} AND #{endDate}
+        And h_id = #{hospitalId}
+        ORDER BY reserv_date, reserv_time
+    </select>
+
+    <update id="updateReservationMemo" parameterType="map">
+        UPDATE reservation
+        SET reserv_memo = #{memo}
+        WHERE reserv_id = #{reservationId}
+    </update>
+
+    <select id="findUserPetInfoByReservationId" resultType="com.forus.dto.UserPetInfo">
+        SELECT
+        u.name AS userName,
+        u.phone AS userPhone,
+        u.email AS userEmail,
+        COALESCE(p.pet_name, '펫 등록 x') AS petName,
+        COALESCE(p.pet_species, '펫 등록 x') AS petSpecies,
+        COALESCE(p.pet_breed, '펫 등록 x') AS petBreed,
+        COALESCE(p.pet_gender, '펫 등록 x') AS petGender,
+        COALESCE(p.pet_age, 0) AS petAge,
+        COALESCE(p.pet_picture, 'petdefault.png') AS petPicture
+        FROM
+        reservation r
+        JOIN
+        user u ON r.user_id = u.id
+        LEFT JOIN
+        pet p ON r.pet_id = p.pet_id
+        WHERE
+        r.reserv_id = #{reservationId};
+    </select>
+
+    <update id="updateReservationStatus" parameterType="map">
+        UPDATE reservation
+        SET reserv_status = #{reservationStatus}
+        WHERE reserv_id = #{reservationId}
+    </update>
+
+
+
+</mapper>

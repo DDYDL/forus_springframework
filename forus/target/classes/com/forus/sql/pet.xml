@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.pet">
+	<insert id="insertPet" parameterType="pet">
+		<![CDATA[
+			insert into pet (user_id,pet_name,pet_species, pet_breed, pet_gender,
+pet_age, pet_neutering, pet_picture, pet_memo, pet_num)
+			values(#{user_id},#{pet_name}, #{pet_species}, #{pet_breed}, #{pet_gender}, #{pet_age},
+			 #{pet_neutering}, #{pet_picture}, #{pet_memo}, #{pet_num} )
+		]]>
+	</insert>
+
+	<select id="selectPet" parameterType="Integer" resultType="pet">
+		<![CDATA[
+			select * from pet where pet_id=#{pet_id}
+		]]>
+	</select>
+
+	<update id="updatePet" parameterType="pet">
+		update pet
+		<set>
+			<if test="pet_name !=null"> pet_name=#{pet_name},</if>
+			<if test="pet_species!=null"> pet_species=#{pet_species}, </if>
+			<if test="pet_breed!=null"> pet_breed=#{pet_breed}, </if>
+			<if test="pet_gender!=null"> pet_gender=#{pet_gender}, </if>
+			<if test="pet_age!=null"> pet_age=#{pet_age}, </if>
+			<if test="pet_neutering!=null"> pet_neutering=#{pet_neutering},  </if>
+			<if test="pet_picture!=null"> pet_picture=#{pet_picture}, </if>
+			<if test="pet_memo!=null"> pet_memo=#{pet_memo}, </if>
+			<if test="pet_num!=null"> pet_num=#{pet_num} </if>
+		</set>
+		where pet_id = #{pet_id}
+	</update>
+
+	<select id="selectPetList" parameterType="Integer"
+		resultType="pet">
+		<![CDATA[
+			select * from pet where user_id=#{user_id}
+		]]>
+	</select>
+
+	<delete id="deletePet" parameterType="Pet">
+		<![CDATA[
+			delete from pet where pet_id = #{pet_id}]]>
+	</delete>
+
+</mapper>
+
+ 
+ 
+ 

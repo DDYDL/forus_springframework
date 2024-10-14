@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.recruit_post">
+	<insert id="insertRecruit_post" parameterType="Recruit_post">
+		<![CDATA[
+			insert into recruit_post (user_id,pet_id,post_time,post_title,post_content,post_address,
+				post_form,post_pay,post_date,post_start_time,post_end_time,post_status)
+				values (#{user_id},#{pet_id},#{post_time},#{post_title},#{post_content},#{post_address},
+				#{post_form},#{post_pay},#{post_date},#{post_start_time},#{post_end_time},#{post_status})
+		]]>
+	</insert>
+	
+	<select id="selectRecruit_post" parameterType="Integer" resultType="Recruit_post">
+		<![CDATA[
+			select * from recruit_post where post_id=#{post_id}
+		]]>
+	</select>
+	
+	<select id="selectPostListByUserId" parameterType="Integer" resultType="Map">
+		<![CDATA[
+			SELECT p.post_id, DATE(p.post_time) as post_date, p.post_title, p.post_status, COUNT(a.post_id) AS applycnt
+		      FROM recruit_post p
+			  left JOIN recruit_apply a ON p.post_id=a.post_id
+			 WHERE p.user_id = #{user_id}
+			 GROUP BY p.post_id, p.post_time, p.post_title, p.post_status
+			 ORDER BY p.post_time DESC
+		]]>
+	</select>
+	
+	<update id="updateRecruit_post" parameterType="Recruit_post">
+		<![CDATA[
+			update recruit_post set pet_id=#{pet_id},post_title=#{post_title},post_content=#{post_content},post_address=#{post_address},post_form=#{post_form},
+				post_pay=#{post_pay},post_date=#{post_date},post_start_time=#{post_start_time},post_end_time=#{post_end_time}
+				where post_id=#{post_id}
+		]]>
+	</update>
+	
+	<update id="updateRecruit_post_status" parameterType="Recruit_post">
+		<![CDATA[
+			update recruit_post set post_status=#{post_status} where post_id=#{post_id}
+		]]>
+	</update>
+
+	<delete id="deletePostByPostId" parameterType="String">
+		<![CDATA[
+			delete from recruit_post where post_id=#{post_id}
+		]]>
+	</delete>
+
+</mapper>

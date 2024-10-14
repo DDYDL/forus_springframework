@@ -1,0 +1,41 @@
+/* 예약 일정 조정 버튼*/
+.check label {
+	cursor: pointer;
+}
+
+.check label span {
+	position: relative;
+	display: inline-block;
+	background: rgba(194, 194, 194, 0.5);
+	padding: 18px 20px;
+	color: #262627;
+	border-radius: 70%;
+	transition: 0.1s;
+	user-select: none;
+	overflow: hidden;
+}
+
+.check label input[type="checkbox"]:checked ~ span {
+	background: #03C75ADD;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input [type="text"] {
+	text-align: center;
+}
+
+#timepicker{
+	padding-left: 30px;
+}
+
+
+#interval {
+	border: 1px solid #D1D1D1;
+	border-radius: 5px;
+	width: 250px;
+	height: 35px;
+	padding-left: 13px;
+}

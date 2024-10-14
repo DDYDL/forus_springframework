@@ -1,0 +1,240 @@
+
+#time-slots-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    justify-items: center;
+    margin-top: 6%;
+    padding: 7%;
+}
+
+
+.time-slot-label {
+    display: inline-block;
+    margin: 5px;
+}
+
+.time-slot-button {
+    /*display: inline-block;*/
+    /*padding: 6px 10px;*/
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 4px;*/
+    /*background-color: #fff;*/
+    /*cursor: pointer;*/
+    /*transition: background-color 0.3s ease, border-color 0.3s ease;*/
+    /*font-size: 15px;*/
+
+    display: inline-block;
+    padding: 6px 10px;
+    color: #265187;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #3da2d7;
+    background-color: white;
+}
+
+
+
+.time-slot-label input[type="radio"] {
+    display: none;
+}
+
+.time-slot-label input[type="radio"]:checked + .time-slot-button {
+    background-color: #3185D6;
+    color: #fff;
+    border-color: #3185D6;
+}
+
+.time-slot-button:hover {
+    background-color: #f1f1f1;
+    border-color: #999;
+}
+
+.time-slot-label input[type="radio"]:disabled + .time-slot-button {
+    background-color: #c6c6c7;
+    cursor: not-allowed;
+}
+
+/*#reservation-modal-content{*/
+/*    margin-left: 1%;*/
+/*}*/
+
+.flatpickr-calendar {
+    margin-left: 12%;
+}
+
+
+.flatpickr-calendar.inline {
+    display: block;
+    position: relative;
+    top: 2px;
+    margin-top: 6%;
+}
+
+
+.pet-selection {
+    display: flex;
+    /* align-items: center; */
+    margin-bottom: 20px;
+    margin-left: 27%;
+}
+
+
+.pet-selection img {
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: -15%;
+}
+
+.pet-selection .pet-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.pet-selection input[type="radio"] {
+    margin-right: 15px;
+    align-self: flex-start;
+}
+
+/* 펫 이름 스타일 */
+.reservation-items{
+    margin-top: 10%;
+}
+
+
+
+/*여기입니다 버튼 */
+/* 기본적으로 라디오 버튼 숨기기 */
+.reservation-check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 버튼의 기본 스타일 */
+.reservation-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid #00bfff;
+    color: #00bfff;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 선택된 버튼 */
+.reservation-check:checked + .reservation-button {
+    background-color: #00bfff;
+    color: #ffffff;
+    border-color: #00bfff;
+}
+
+/* 마우스 오버 시 스타일 */
+.reservation-button:hover {
+    background-color: #00bfff;
+    color: #ffffff;
+    border-color: #00bfff;
+    cursor: pointer;
+}
+
+#otherText {
+    margin-top: 6%;
+    height: 27px;
+    width: 34%;
+
+    /* 새로운 스타일 */
+    padding: 5px 10px;
+
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;  /* 부드러운 전환 효과 */
+}
+
+
+#otherText:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.pet-selection {
+
+    margin-bottom: 10px;
+}
+
+.pet-radio-btn {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pet-selection-button {
+    display: flex;
+    align-items: center;
+    padding: 3% 5%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #3185D6;
+    color: #3185D6;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 선택된 버튼 */
+.pet-radio-btn:checked + .pet-selection-button {
+    background-color: #3185D6;
+    color: white;
+    border-color: #3185D6;
+}
+
+.pet-selection img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.pet-selection-button:hover {
+    background-color: #3185D6;
+    color: white;
+    border-color:#3185D6;
+}
+
+
+#reservation-input{
+    margin-top: 10px;
+    text-align: center;
+    height: 27px;
+
+
+}
+
+#reservation-date-badge{
+
+    display: inline-block;
+    padding: 12px 20px;
+    /* background-color: #007bff; */
+    color: #6b9ed2;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.2);
+    border: 1px solid #0056b3;
+}
+

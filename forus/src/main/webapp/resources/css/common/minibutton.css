@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/* 작은 버튼 정렬 설정 */
+.minibtndiv { text-align: right; }
+
+/* 작은 버튼 설정 - 라이브러리 */
+a.minibutton {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 30px;
+  padding: 0;
+  margin: 10px 0px 10px 0;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.minibtnBlueGreen { background: #ffffff; }
+.minibtnFade.minibtnBlueGreen:hover { background: #03C75A; color:#ffffff; }
+
+/* 더보기 버튼 설정 */
+#moreBtn {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 10px 0px 10px 0;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #D1D1D1;
+  border-radius: 30px;
+  transition: all 0.2s;
+}
+
+/* button타입 버튼 설정 */
+button.minibutton {
+  display: inline-block;
+  position: relative;
+  width: 70px;
+  height: 30px;
+  padding: 0;
+  margin: 5px 5px 10px 10px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+/* input타입 버튼 설정 */
+input.minibutton {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  padding: 0;
+  margin: 10px 20px 10px 0;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  transition: all 0.2s;
+}

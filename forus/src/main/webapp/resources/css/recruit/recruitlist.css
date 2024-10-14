@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/* 드랍버튼 스타일 설정 */
+.btn { background-color:#03C75ACC; border:1px solid #D1D1D1; margin-right:6px; }
+.btn:hover { background-color:#03985A; border:1px solid #D1D1D1; }
+.btn:active { background-color:#03985A; border:1px solid #D1D1D1; }
+#dropbtnArea { display: inline-block; }
+#dropbtnSpecies { display: inline-block; }
+
+/* 검색 박스 설정 */
+.searchbox {
+	border: 1px solid #D1D1D1;
+	height: auto;
+	min-height: 50px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+#demo1 { margin: 10px 20px 5px 20px;}
+#demo2 { margin: 10px 20px 5px 20px;}
+.table { border-top: 2px solid #D1D1D1; border-radius: 10px;}
+.search_table { border-top: none; border-collapse: collapse; border-style: hidden; }
+#search_btnArea { margin: 10px 10px 10px 15px; }
+#search_btnSpecies { margin: 10px 10px 10px 15px; }
+#init_text { border-radius: 10px; padding: 15px; text-align: center; }
+
+.tabletd { width:300px; border-style: none; border-radius: 0px; }
+.tabletd1 { border-right:1px solid #D1D1D1; }
+.tabletd2 { border-right:1px solid #D1D1D1; }
+select { border-style: none; }
+select:focus { border:none; outline: none; }
+select::-webkit-scrollbar { display: none; }
+
+/* 리스트 설정 */
+.list-header { display:flex; justify-content:space-between; }
+.list-count { align-self: flex-end; }
+.list-btn { align-self: flex-end; }
+th { text-align:center; }
+
+.recruit_td1 { width:150px; padding-left:20px; white-space:pre-line; word-break:keep-all; vertical-align:middle; }
+.recruit_th1 { width:150px; padding-left:20px; }
+/* 제목 */
+.recruit_td2 { width:170px; padding-left:50px; white-space:nowrap; overflow:hidden; vertical-align:middle; }
+.recruit_th2 { width:170px; padding-left:50px; }
+/* 급여 */
+.recruit_td3 { width:150px; padding-left:30px; text-align:right; vertical-align:middle; }
+.recruit_th3 { width:150px; padding-left:30px; }
+.form_btn { border:1px solid #03C75A; background:white; border-radius:20px; font-size:12px; }
+/* 근무시간 */
+.recruit_td4 { width:70px; padding-left:30px; text-align:center; vertical-align:middle; }
+.recruit_th4 { width:70px; padding-left:30px; }
+/* 등록일 */
+.recruit_td5 { width:100px; padding-left:30px; word-break:keep-all; text-align:right; vertical-align:middle; }
+.recruit_th5 { width:100px; padding-left:30px; }

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* 리스트 설정 */
+table { border-top: 2px solid; }
+
+.apply_td { text-align:center; vertical-align:middle; }
+.icon { width:25px; height:25px; }
+.user_img_div { width:80px; border-radius:70%; overflow: hidden; }
+.user_img { width:80px; height:80px;  border-radius: 70%; overflow: hidden; object-fit: cover; }

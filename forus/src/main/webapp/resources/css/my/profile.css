@@ -1,0 +1,80 @@
+.img-icon {
+	width: 130px;
+	height: 130px;
+	border-radius: 70%;
+	object-fit: cover;
+}
+
+.img-button {
+	width: 180px;
+	height: 180px;
+	border-radius: 70%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+placeholder {
+	color: blue;
+	font-size: 1.3;
+	text-align: center;
+}
+
+::-ms-input-placeholder {
+	color: red;
+}
+
+#input_box {
+	padding: 10px;
+	width: 300px;
+	height: 100px;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid rgb(201, 201, 201)
+}
+
+textarea {
+	resize: none;
+}
+
+input[type="date"]::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+
+
+#pet_age {
+	border: 1px solid #D1D1D1;
+	border-radius: 5px;
+	width: 250px;
+	height: 35px;
+	padding-left: 13px;
+}
+
+.title {
+	padding-top: 10px;
+	font-weight: bold;
+}
+
+.line {
+	margin: 5px 10px;
+	padding: 15px 30px 10px 10px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(201, 201, 201);
+	border-bottom-width: 2px;
+	width: fit-content;
+}
+
+.authentication {
+	float: left;
+}
+
+.row {
+	height: auto;
+	padding: 5px;
+}
+
+.righttab {
+	float: right;
+}

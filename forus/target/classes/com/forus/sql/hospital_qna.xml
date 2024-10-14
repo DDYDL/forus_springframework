@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.hospital_qna">
+	<insert id="insertQuestion" parameterType="hospital_qna">
+		INSERT INTO hospital_qna (user_id, h_id, q_title, q_time, q_writer)
+		VALUES (#{user_id}, #{h_id}, #{q_title}, NOW(), #{q_writer});
+	</insert>
+
+	<select id="findHospitalQnaListByHospitalId" parameterType="map" resultType="hospital_qna">
+		SELECT * FROM hospital_qna
+		WHERE h_id = #{hospitalId}
+		ORDER BY q_time DESC
+			LIMIT #{limit} OFFSET #{offset};
+	</select>
+
+	<update id="insertAnswer" parameterType="map">
+		UPDATE hospital_qna
+		SET a_title = #{hospitalQna.a_title}, a_time = NOW()
+		WHERE qna_id = #{qnaId};
+	</update>
+
+	<select id="findManagerIdByHospitalId" parameterType="int" resultType="int">
+		SELECT user_id
+		FROM hospital
+		WHERE h_id = #{hospitalId};
+	</select>
+
+</mapper>
